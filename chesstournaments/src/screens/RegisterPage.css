@@ -1,0 +1,66 @@
+.baseRegister {
+    background-color: #172A3A;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+.ContainerRegister {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70%;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 5%;
+    background-color: #004346;
+    border-radius: 50px;
+}
+
+.imgChessLogoRegister {
+    float: left;
+    width: 40%;
+    margin: 5% auto;
+    cursor: pointer;
+}
+
+.ContainerRegister_Form {
+    float: left;
+    width: 60%;
+    margin: 5% auto;
+}
+
+.InputsRegister {
+    width: 50%;
+    margin: 0 50% 2% 0;
+    font-size: 16px;
+    color: #333;
+    border: 2px solid #ccc;
+}
+
+.btnRegister {
+    width: 30%;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    margin: 2% 60% 1% 10%;
+    text-align: center;
+    text-decoration: none;
+    align-items: center;
+    display: block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.AnchorRegister {
+    width: 30%;
+    margin: 0 53% 2% 17%;
+    color: white;
+}
+
+.InputsRegister,
+.btnRegister {
+    border-radius: 10px;
+    padding: 5px 10px;
+}
