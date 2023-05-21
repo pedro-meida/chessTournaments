@@ -7,44 +7,7 @@
     background-color: #172A3A;
 }
 
-.header {
-    display: flex;
-    align-items: center;
-    background-color: #004346;
-    height: 100px;
-    padding: 10px 40px;
-}
 
-.txtlogo {
-    float: left;
-    width: 20%;
-    font-size: 32px;
-    font-weight: bold;
-    color: #fff;
-}
-
-.imgChessLogoLandingPage {
-    float: left;
-    width: 10%;
-    height: 100px;
-}
-
-.btntoLogin {
-    width: 30%;
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    margin: 2% 0% 1% 70%;
-    text-align: center;
-    text-decoration: none;
-    align-items: center;
-    display: block;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    border-radius: 10px;
-    padding: 6px 12px;
-}
 
 .carousel {
     display: flex;
