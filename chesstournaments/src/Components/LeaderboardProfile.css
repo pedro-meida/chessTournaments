@@ -1,0 +1,53 @@
+#baseLeaderboardProfile {
+    width: 100%;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.baseLeaderboardItem {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+}
+
+.leaderboardItem {
+    float: left;
+    width: 100%;
+    margin: 0 0 6px 0;
+    padding: 1% 0;
+    background-color: #09BC8A;
+    border-radius: 20px;
+}
+
+.itemRanking {
+    float: left;
+    width: 10%;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+
+}
+
+.itemImage {
+    float: left;
+    clip-path: circle();
+}
+
+.itemName {
+    float: left;
+    width: 25%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.itemScore {
+    float: right;
+    width: 10%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}

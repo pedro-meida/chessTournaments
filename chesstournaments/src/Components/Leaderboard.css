@@ -1,0 +1,18 @@
+.leaderboard {
+    display: flex;
+    width: 80%;
+    margin: 3% auto;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.txtLeaderboard {
+    font-size: 30px;
+    font-weight: bold;
+    color: #4CAF50;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
