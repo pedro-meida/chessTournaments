@@ -13,10 +13,10 @@ function HeadearLandingPage() {
             <img className='imgChessLogoLandingPage' alt='Imagem da Página do Landing Page' src={logo} />
             <div className="menuUrls">
                 <ul className='ulHeader'>
-                    <li><a href="./">Chess Info</a></li>
-                    <li><a href="./ChessRanking">Chess Ranking</a></li>
-                    <li><a href="./">Chess Tournaments</a></li>
-                    <li><a href="./">Chess Teams</a></li>
+                    <li><a href="./">Info</a></li>
+                    <li><a href="./ChessRanking">Ranking</a></li>
+                    <li><a href="./">Tournaments</a></li>
+                    <li><a href="./">Teams</a></li>
                     <li><a href="./AboutUs">About us</a></li>
                 </ul>
             </div>

@@ -25,7 +25,7 @@ function RegisterPage() {
                             <input className='InputsRegister' type='password' placeholder='Password' />
                             <input className='InputsRegister' type='password' placeholder='Confirm Password' />
                             <button className='btnRegister'>Sign Up</button>
-                            <a className='AnchorRegister' href='../Login'>Já tem Conta?</a>
+                            <a className='AnchorRegister' href='../Login'>Already have an account?</a>
                         </form>
                     </div>
                 </div>

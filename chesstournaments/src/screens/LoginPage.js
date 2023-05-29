@@ -21,7 +21,7 @@ function LoginPage() {
                             <input className='InputsLogin' type='text' placeholder='Email or phone number' />
                             <input className='InputsLogin' type='password' placeholder='Password' />
                             <button className='btnLogin'>Login</button>
-                            <a className='AnchorLogin' href='../CriarConta'>Ainda não tem Conta?</a>
+                            <a className='AnchorLogin' href='../CriarConta'>Don't have an account?</a>
                         </form>
                     </div>
                 </div>

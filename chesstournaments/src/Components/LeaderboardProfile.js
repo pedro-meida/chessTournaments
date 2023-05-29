@@ -1,49 +1,71 @@
-import React from 'react'
+import React, { useState/*, useEffect*/ } from 'react'
 import './LeaderboardProfile.css'
 import Colaborador1 from '../imgs/Colaborador1.png'
 import Colaborador2 from '../imgs/Colaborador2.png'
+import Default from '../imgs/imagemPerfilDefault.png'
+import PostRanking from './PostRanking.js'
+import Pagination from './Pagination.js'
 
 function LeaderboardProfile() {
+    /*const [posts, setPosts] = useState([]);*/
+    const [loading, /*setLoading*/] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(5);
+
+
     const profiles = [
-        { id: 1, firstName: 'Pedro', lastName: 'Almeida', image: Colaborador1, score: 4200 },
-        { id: 2, firstName: 'João', lastName: 'Vieira', image: Colaborador2, score: 3900 },
-        { id: 3, firstName: 'Henrique', lastName: 'Nascimento', image: 'data:image/jpeg;base64,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', score: 3870 },
+        { id: 1, firstName: 'Pedro', lastName: 'Almeida', image: Colaborador2, score: 4200 },
+        { id: 2, firstName: 'João', lastName: 'Vieira', image: Colaborador1, score: 3900 },
+        { id: 3, firstName: 'Henrique', lastName: 'Nascimento', image: Default, score: 3870 },
+        { id: 4, firstName: 'Rafael', lastName: 'Rodrigues', image: Default, score: 100 },
+        { id: 5, firstName: 'António', lastName: 'Fialho', image: Default, score: 3900 },
+        { id: 6, firstName: 'João', lastName: 'Vieira', image: Default, score: 3900 },
+        { id: 7, firstName: 'Henrique', lastName: 'Nascimento', image: Default, score: 3870 },
+        { id: 8, firstName: 'Rafael', lastName: 'Rodrigues', image: Default, score: 100 },
+        { id: 9, firstName: 'António', lastName: 'Fialho', image: Default, score: 3900 },
+        { id: 10, firstName: 'João', lastName: 'Vieira', image: Default, score: 3900 },
+        { id: 11, firstName: 'Henrique', lastName: 'Nascimento', image: Default, score: 3870 },
+        { id: 12, firstName: 'Rafael', lastName: 'Rodrigues', image: Default, score: 100 },
+        { id: 13, firstName: 'António', lastName: 'Fialho', image: Default, score: 3900 },
+        { id: 14, firstName: 'João', lastName: 'Vieira', image: Default, score: 3900 },
+        { id: 15, firstName: 'Henrique', lastName: 'Nascimento', image: Default, score: 3870 },
+        { id: 16, firstName: 'Rafael', lastName: 'Rodrigues', image: Default, score: 100 },
+        { id: 17, firstName: 'António', lastName: 'Fialho', image: Default, score: 3900 },
+        { id: 18, firstName: 'João', lastName: 'Vieira', image: Default, score: 3900 },
+        { id: 19, firstName: 'Henrique', lastName: 'Nascimento', image: Default, score: 3870 },
+        { id: 20, firstName: 'Rafael', lastName: 'Rodrigues', image: Default, score: 100 },
+        { id: 21, firstName: 'António', lastName: 'Fialho', image: Default, score: 3900 },
     ];
+
+    /*useEffect(() => {
+        const fetchPosts = async () => {
+            setLoading(true);
+            const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+            const posts = await res.json();
+            setPosts(posts);
+            setLoading(false);
+        };
+
+        fetchPosts();
+    }, []);*/
+
+    // Get current posts
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentProfiles = profiles.slice(indexOfFirstPost, indexOfLastPost);
+
+    // Change page
+    const paginate = pageNumber => setCurrentPage(pageNumber);
 
     return (
         <>
             <div id='baseLeaderboardProfile'>
-                {leaderboardItem({ profiles })}
+                <PostRanking profiles={currentProfiles} loading={loading} />
+                <Pagination postPerPage={postsPerPage} totalPosts={profiles.length} paginate={paginate} />
             </div>
         </>
     )
 }
 
-function leaderboardItem({ profiles }) {
-    return (
-        <>
-            <div className='baseLeaderboardItem' >
-                {profiles.map((profile, index) => {
-                    return (
-                        <>
-                            <div className='leaderboardItem' key={index}>
-                                <div className='itemRanking'>
-                                    <h3>{profile.id}</h3>
-                                </div>
-                                <img className='itemImage' src={profile.image} style={{ width: '5%', height: '5%' }} alt='imagem do perfil' />
-                                <div className='itemName'>
-                                    <h3>{profile.firstName} {profile.lastName}</h3>
-                                </div>
-                                <div className='itemScore'>
-                                    <h3>{profile.score}</h3>
-                                </div>
-                            </div>
-                        </>
-                    );
-                })}
-            </div>
-        </>
-    );
-}
 
 export default LeaderboardProfile
