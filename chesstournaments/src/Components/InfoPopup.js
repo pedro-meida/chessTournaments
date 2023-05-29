@@ -1,12 +1,12 @@
 import React from 'react'
-import './PieceInfoPopup.css'
+import './InfoPopup.css'
 import { useState, useEffect } from 'react';
 
-function PieceInfoPopup(InfoPiece) {
+function PieceInfoPopup(Info) {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        if (InfoPiece.trigger) {
+        if (Info.trigger) {
             // Delay setting isOpen to true to allow transition effect
             const timeoutId = setTimeout(() => {
                 setIsOpen(true);
@@ -16,12 +16,12 @@ function PieceInfoPopup(InfoPiece) {
         } else {
             setIsOpen(false);
         }
-    }, [InfoPiece.trigger]);
-    return (InfoPiece.trigger) ? (
+    }, [Info.trigger]);
+    return (Info.trigger) ? (
         <div className={`basePopup ${isOpen ? 'active' : ''}`}>
             <div className='popup'>
-                <button onClick={() => InfoPiece.setTrigger(false)} className='btnClosePopup'>X</button>
-                {InfoPiece.children}
+                <button onClick={() => Info.setTrigger(false)} className='btnClosePopup'>X</button>
+                {Info.children}
             </div>
         </div>
     ) : "";

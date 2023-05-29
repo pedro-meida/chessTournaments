@@ -16,7 +16,7 @@ function LeaderboardProfile() {
     const profiles = [
         { id: 1, firstName: 'Pedro', lastName: 'Almeida', image: Colaborador2, score: 4200 },
         { id: 2, firstName: 'João', lastName: 'Vieira', image: Colaborador1, score: 3900 },
-        { id: 3, firstName: 'Henrique', lastName: 'Nascimento', image: Default, score: 3870 },
+        { id: 3, firstName: 'Gonçalo', lastName: 'Costa', image: Default, score: 3870 },
         { id: 4, firstName: 'Rafael', lastName: 'Rodrigues', image: Default, score: 100 },
         { id: 5, firstName: 'António', lastName: 'Fialho', image: Default, score: 3900 },
         { id: 6, firstName: 'João', lastName: 'Vieira', image: Default, score: 3900 },

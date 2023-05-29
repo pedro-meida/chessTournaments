@@ -1,5 +1,5 @@
 import React from 'react'
-import PieceInfoPopup from '../Components/PieceInfoPopup';
+import InfoPopup from '../Components/InfoPopup';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa'
 import { useState } from 'react';
 
@@ -81,14 +81,14 @@ const ImageSlider = ({ slides }) => {
                 one <span onClick={() => popupFunction(5)} className='txtChessPieces'>king</span>.</p>
             <p className='txtInformationBot'>Let's meet them!</p>
 
-            <PieceInfoPopup trigger={popup} setTrigger={setPopup}>
+            <InfoPopup trigger={popup} setTrigger={setPopup}>
                 <h2 className='txtChessPopupTitle'>{piece.title}</h2>
                 <img src={piece.image} alt='Imagem da Peça de Xadrez' className='imgChessPopup' />
                 <div className='txtChessPopupDescription'>
                     <p className='txtChessPopupDescriptionTop'>{piece.firstText}</p>
                     <p className='txtChessPopupDescriptionBot'>{piece.secondText}</p>
                 </div>
-            </PieceInfoPopup>
+            </InfoPopup>
         </>
     )
 }

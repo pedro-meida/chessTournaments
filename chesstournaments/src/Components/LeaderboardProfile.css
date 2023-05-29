@@ -23,6 +23,11 @@
     padding: 1% 0;
     background: linear-gradient(#4CAF50, #09BC8A);
     border-radius: 20px;
+    cursor: pointer;
+}
+
+.leaderboardItem:hover {
+    box-shadow: 0 0 5px #09BC8A, 0 0 10px #09BC8A, 0 0 20px #09BC8A;
 }
 
 .itemRanking {
