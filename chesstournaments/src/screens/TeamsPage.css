@@ -1,4 +1,13 @@
-.leaderboard {
+.baseTeamsPage {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #172A3A;
+}
+
+.teams {
     display: flex;
     width: 80%;
     margin: 0% auto;
@@ -8,7 +17,7 @@
     justify-content: center;
 }
 
-.txtLeaderboard {
+.txtTeams {
     font-size: 30px;
     font-weight: bold;
     color: #4CAF50;
@@ -17,7 +26,7 @@
     margin-bottom: 20px;
 }
 
-.baseLeaderboardProfile {
+.baseTeams {
     width: 100%;
     flex-direction: row;
     text-align: center;
@@ -25,7 +34,7 @@
     justify-content: center;
 }
 
-.baseLeaderboardItem {
+.baseTeamsItem {
     width: 80%;
     height: 100%;
     margin: 0 auto;
@@ -35,7 +44,7 @@
     justify-content: center;
 }
 
-.leaderboardItem {
+.teamsItem {
     float: left;
     width: 100%;
     margin: 0 0 6px 0;
@@ -45,11 +54,11 @@
     cursor: pointer;
 }
 
-.leaderboardItem:hover {
+.teamsItem:hover {
     box-shadow: 0 0 5px #09BC8A, 0 0 10px #09BC8A, 0 0 20px #09BC8A;
 }
 
-.itemRanking {
+.itemTeamId {
     float: left;
     width: 10%;
     font-size: 16px;
@@ -58,12 +67,12 @@
 
 }
 
-.itemImage {
+.itemTeamImage {
     float: left;
     clip-path: circle();
 }
 
-.itemName {
+.itemTeamName {
     float: left;
     width: 25%;
     font-size: 16px;
@@ -73,13 +82,39 @@
     text-align: left;
 }
 
-.itemScore {
-    float: right;
-    width: 10%;
-    font-size: 16px;
+.txtChessPopupTitle {
+    font-size: 3vw;
     font-weight: bold;
-    color: #fff;
-    text-align: center;
+    color: #4CAF50;
+    margin: 2% 0;
+}
+
+.txtChessPopupDescriptionScore {
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin: 15% 0 5% 0;
+}
+
+.txtChessPopupDescriptionTeam {
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 5%;
+}
+
+.txtChessPopupDescriptionAge {
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 5%;
+}
+
+.txtChessPopupDescriptionTournaments {
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 5%;
 }
 
 .navPagination {

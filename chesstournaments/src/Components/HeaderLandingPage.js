@@ -15,8 +15,8 @@ function HeadearLandingPage() {
                 <ul className='ulHeader'>
                     <li><a href="./">Info</a></li>
                     <li><a href="./ChessRanking">Ranking</a></li>
-                    <li><a href="./">Tournaments</a></li>
-                    <li><a href="./">Teams</a></li>
+                    <li><a href="./Tournaments">Tournaments</a></li>
+                    <li><a href="./Teams">Teams</a></li>
                     <li><a href="./AboutUs">About us</a></li>
                 </ul>
             </div>

@@ -26,11 +26,8 @@ const ImageSlider = ({ slides }) => {
         setCurrent(current === 0 ? 5 : current - 1)
         setNext(next === 0 ? 5 : next - 1)
         if (popup === true) {
-            if (current === currentPopup) {
-                popupFunction(current === 0 ? 5 : current - 1);
-            } else {
-                popupFunction(current);
-            }
+            popupFunction(currentPopup === 0 ? 5 : currentPopup - 1);
+            console.log(currentPopup);
         }
     }
 

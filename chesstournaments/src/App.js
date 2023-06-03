@@ -4,7 +4,9 @@ import LandingPage from './screens/LandingPage.js'
 import LoginPage from './screens/LoginPage.js'
 import RegisterPage from './screens/RegisterPage.js'
 import AboutUs from './screens/AboutUs.js';
-import ChessRankingPage from './screens/ChessRankingPage';
+import ChessRankingPage from './screens/ChessRankingPage.js';
+import TournamentPage from './screens/TournamentPage.js';
+import TeamsPage from './screens/TeamsPage.js';
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
         <Route path="/ChessRanking" element={<ChessRankingPage />} />
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/CriarConta" element={<RegisterPage />} />
+        <Route path="/Tournaments" element={<TournamentPage />} />
+        <Route path="/Teams" element={<TeamsPage />} />
       </Routes>
     </BrowserRouter>
   );
