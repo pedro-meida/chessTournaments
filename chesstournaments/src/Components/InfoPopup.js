@@ -7,7 +7,6 @@ function PieceInfoPopup(Info) {
 
     useEffect(() => {
         if (Info.trigger) {
-            // Delay setting isOpen to true to allow transition effect
             const timeoutId = setTimeout(() => {
                 setIsOpen(true);
             }, 10);

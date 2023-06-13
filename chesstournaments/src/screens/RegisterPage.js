@@ -3,6 +3,21 @@ import logo from '../imgs/ChessLogo.png'
 import { useNavigate } from 'react-router-dom';
 
 function RegisterPage() {
+    const info = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        phoneNumber: '',
+        password: '',
+        username: '',
+        birthDate: '',
+        sex: '',
+        nacionality: '',
+        address: '',
+        postalCode: '',
+        photo: ''
+    }
+
     const navigate = useNavigate();
     const handleGoToHome = () => navigate("../");
 
@@ -18,7 +33,7 @@ function RegisterPage() {
                     <div className='ContainerRegister_Form'>
                         <h1 style={{ color: 'white' }}>Create Account</h1>
                         <form>
-                            <input className='InputsRegister' type='text' placeholder='First Name' />
+                            <input className='InputsRegister' type='text' value={info.firstName} placeholder='First Name' />
                             <input className='InputsRegister' type='text' placeholder='Last Name' />
                             <input className='InputsRegister' type='text' placeholder='Email' />
                             <input className='InputsRegister' type='text' placeholder='Phone Number' />

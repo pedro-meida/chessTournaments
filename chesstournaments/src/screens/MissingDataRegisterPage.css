@@ -1,0 +1,75 @@
+.baseMissingData {
+    background-color: #172A3A;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+.ContainerMissingData {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 75%;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 5%;
+    background-color: #004346;
+    border-radius: 50px;
+}
+
+.imgChessLogoMissingData {
+    float: left;
+    width: 40%;
+    margin: 5% auto;
+}
+
+.ContainerMissingData_Form {
+    float: left;
+    width: 60%;
+    margin: 5% auto;
+}
+
+.InputsMissingData {
+    width: 50%;
+    margin: 0 50% 2% 0;
+    font-size: 16px;
+    color: #333;
+    border: 2px solid #ccc;
+    background-color: #fff;
+}
+
+.SelectMissingData {
+    width: 53.5%;
+    margin: 0 50% 2% 0;
+    font-size: 16px;
+    color: #333;
+    border: 2px solid #ccc;
+}
+
+.btnMissingData {
+    width: 30%;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    margin: 2% 60% 1% 10%;
+    text-align: center;
+    text-decoration: none;
+    align-items: center;
+    display: block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.AnchorMissingData {
+    width: 30%;
+    margin: 0 59% 2% 11%;
+    color: white;
+}
+
+.InputsMissingData,
+.btnMissingData,
+.SelectMissingData {
+    border-radius: 10px;
+    padding: 5px 10px;
+}

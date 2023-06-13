@@ -7,6 +7,7 @@ import AboutUs from './screens/AboutUs.js';
 import ChessRankingPage from './screens/ChessRankingPage.js';
 import TournamentPage from './screens/TournamentPage.js';
 import TeamsPage from './screens/TeamsPage.js';
+import MissingDataRegisterPage from './screens/MissingDataRegisterPage';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/ChessRanking" element={<ChessRankingPage />} />
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/CriarConta" element={<RegisterPage />} />
+        <Route path="/CriarConta/DadosEmFalta" element={<MissingDataRegisterPage />} />
         <Route path="/Tournaments" element={<TournamentPage />} />
         <Route path="/Teams" element={<TeamsPage />} />
       </Routes>
