@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import './MissingDataRegisterPage.css';
 import logo from '../imgs/ChessLogo.png'
-//import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
 function MissingDataRegisterPage() {
+    const location = useLocation();
+    const info = location.state.info;
+
+    console.log(info);
 
     const [startDate, setStartDate] = useState(null);
     const today = new Date();
