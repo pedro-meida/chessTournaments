@@ -1,20 +1,79 @@
 import React, { useState } from 'react'
 import './MissingDataRegisterPage.css';
 import logo from '../imgs/ChessLogo.png'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
-import "react-datepicker/dist/react-datepicker.css";
+import 'react-datepicker/dist/react-datepicker.css';
 
 function MissingDataRegisterPage() {
     const location = useLocation();
-    const info = location.state.info;
+    const initialInfo = location.state.info;
+    const [info, setInfo] = useState(initialInfo);
 
-    console.log(info);
+    const [username, setUsername] = useState(info.username);
 
-    const [startDate, setStartDate] = useState(null);
-    const today = new Date();
+    const handleInputUsername = (event) => {
+        setUsername(event.target.value);
+        setInfo({ ...info, username: event.target.value });
+    }
 
-    //const navigate = useNavigate();
+    const [birthDate, setBirthDate] = useState(info.birthDate);
+    const handleInputBirthDate = (date) => {
+        setBirthDate(date);
+        setInfo({ ...info, birthDate: date.toLocaleDateString('pt-PT') });
+    }
+
+    const [sexo, setSexo] = useState(info.sex)
+
+    const handleInputSexo = (event) => {
+        setSexo(event.target.value);
+        setInfo({ ...info, sex: event.target.value })
+    }
+
+    const [nacionalidade, setNacionalidade] = useState(info.nacionalidade);
+
+    const handleInputNacionalidade = (event) => {
+        setNacionalidade(event.target.value);
+        setInfo({ ...info, nacionality: event.target.value });
+    }
+
+    const [address, setAddress] = useState(info.address);
+
+    const handleInputAddress = (event) => {
+        setAddress(event.target.value);
+        setInfo({ ...info, address: event.target.value });
+    }
+
+    const [postalCode, setPostalCode] = useState(info.postalCode);
+
+    const handleInputPostalCode = (event) => {
+        setPostalCode(event.target.value);
+        setInfo({ ...info, postalCode: event.target.value });
+    }
+
+    const handleInputPhoto = (event) => {
+        const selectedPhoto = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onloadend = () => {
+            setInfo({ ...info, photo: reader.result });
+        };
+
+        if (selectedPhoto) {
+            reader.readAsDataURL(selectedPhoto);
+        }
+
+    }
+
+    const navigate = useNavigate();
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(info);
+        navigate('/');
+    }
+
+
 
     return (
         <>
@@ -27,27 +86,35 @@ function MissingDataRegisterPage() {
                     <div className='ContainerMissingData_Form'>
                         <h1 style={{ color: 'white' }}>Missing Data</h1>
                         <form>
-                            <input className='InputsMissingData' type='text' placeholder='Username' />
+                            <input className='InputsMissingData' type='text' value={username} onChange={handleInputUsername} placeholder='Username' />
                             <DatePicker
                                 className='InputsMissingData'
-                                selected={startDate}
-                                onChange={date => setStartDate(date)}
-                                dateFormatCalendar='dd/MM/yyyy' placeholderText='Birth Date'
-                                maxDate={today}
+                                selected={birthDate}
+                                onChange={handleInputBirthDate}
+                                placeholderText='Birth Date'
+                                maxDate={new Date()}
                                 showMonthDropdown
                                 showYearDropdown
                                 scrollableMonthYearDropdown
+                                dateFormat="dd/MM/yyyy"
+                                closeOnScroll={true}
+                                closeOnSelect={true}
                             />
-                            <select className='SelectMissingData'>
+                            <select className='SelectMissingData' value={sexo} onChange={handleInputSexo}>
                                 <option value="">--What's your sex--</option>
-                                <option value="M">Male</option>
-                                <option value="F">Female</option>
+                                <option value='M' >Male</option>
+                                <option value='F' >Female</option>
                             </select>
-                            <input className='InputsMissingData' type='text' placeholder='Nacionalidade' />
-                            <input className='InputsMissingData' type='text' placeholder='Morada' />
-                            <input className='InputsMissingData' type='text' placeholder='Código Postal' />
-                            <input className='InputsMissingData' type='file' accept='image/png , image/jpg' placeholder='Foto' />
-                            <button className='btnMissingData'>Submit</button>
+                            <input className='InputsMissingData' type='text' value={nacionalidade} onChange={handleInputNacionalidade} placeholder='Nacionalidade' />
+                            <input className='InputsMissingData' type='text' value={address} onChange={handleInputAddress} placeholder='Morada' />
+                            <input className='InputsMissingData' type='text' value={postalCode} onChange={handleInputPostalCode} placeholder='Código Postal' />
+                            <input
+                                className='InputsMissingData'
+                                type="file"
+                                accept="image/png, image/jpg"
+                                onChange={handleInputPhoto}
+                                placeholder='Foto' />
+                            <button className='btnMissingData' onClick={handleSubmit}>Submit</button>
                         </form>
                     </div>
                 </div>

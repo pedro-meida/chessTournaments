@@ -1,9 +1,13 @@
 import './LandingPage.css';
 import Header from '../Components/HeaderLandingPage'
 import ImageSlider from '../Components/ImageSlider'
-import { SliderData } from '../Components/SliderData';
+import { SliderData } from '../utils/SliderData';
+import { useAuth } from '../utils/AuthContext';
 
 function LandingPage() {
+    const { isLoggedIn } = useAuth();
+
+    console.log(isLoggedIn);
 
     return (
         <>

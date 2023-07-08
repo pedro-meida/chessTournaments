@@ -1,10 +1,32 @@
 import './LoginPage.css';
 import logo from '../imgs/ChessLogo.png'
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../utils/AuthContext';
 
 function LoginPage() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     const navigate = useNavigate();
     const handleGoToHome = () => navigate("../");
+
+    const { setUser, setIsLoggedIn } = useAuth();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        // Perform validation if needed
+
+        console.log('Email:', email);
+        console.log('Password:', password);
+        setIsLoggedIn(true);
+        setUser({
+            email: email,
+            password: password
+        })
+        navigate("../")
+    };
 
     return (
         <>
@@ -17,12 +39,24 @@ function LoginPage() {
                         src={logo} />
                     <div className='ContainerLogin_Form'>
                         <h1 style={{ color: 'white' }}>Login</h1>
-                        <form>
-                            <input className='InputsLogin' type='text' placeholder='Email or phone number' />
-                            <input className='InputsLogin' type='password' placeholder='Password' />
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                className='InputsLogin'
+                                type='text'
+                                placeholder='Email'
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            <input
+                                className='InputsLogin'
+                                type='password'
+                                placeholder='Password'
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
                             <button className='btnLogin'>Login</button>
-                            <a className='AnchorLogin' href='../CriarConta'>Don't have an account?</a>
                         </form>
+                        <a className='AnchorLogin' href='../CriarConta'>Don't have an account?</a>
                     </div>
                 </div>
             </div>
