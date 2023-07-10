@@ -13,11 +13,41 @@ function LoginPage() {
 
     const { setUser, setIsLoggedIn } = useAuth();
 
+    /*const handleLogin = async () => {
+        try {
+            console.log(email, password)
+            if (email === '' || password === '') {
+                alert('Dados em falta');
+            }
+            else {
+                const response = await fetch('http://youthere.pythonanywhere.com/auth/' + email + '/' + password, {
+                    method: "GET",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                });
+                if (response.status === 404) {
+                    alert('Utilizador não encontrado');
+                } else if (response.status === 401) {
+                    alert('A password está incorreta');
+                } else {
+                    const data = await response.json();
+                    if (data != null) {
+                        setUser(data);
+                        setIsLoggedIn(true);
+                        navigate("../userPage")
+                    }
+                }
+            }
+        } catch (error) {
+            console.error(error);
+        }
+
+    }*/
+
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        // Perform validation if needed
-
         console.log('Email:', email);
         console.log('Password:', password);
         setIsLoggedIn(true);
@@ -25,7 +55,7 @@ function LoginPage() {
             email: email,
             password: password
         })
-        navigate("../")
+        navigate("../userPage")
     };
 
     return (

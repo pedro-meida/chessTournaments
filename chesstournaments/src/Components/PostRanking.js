@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import InfoPopup from '../Components/InfoPopup';
 
 function PostRanking({ profiles, loading }) {
@@ -8,12 +8,19 @@ function PostRanking({ profiles, loading }) {
     const popupFunction = (valuePlayer) => {
         setPopup(true);
         valuePlayer = valuePlayer - 1;
+        console.log(valuePlayer);
         setProfilePopup(profiles[valuePlayer]);
-    }
+    };
+
+    const calcAge = (dateString) => {
+        var birthday = +new Date(dateString);
+        return ~~((Date.now() - birthday) / 31557600000);
+    };
 
     if (loading) {
         return <h2>Loading...</h2>;
     }
+
     return (
         <>
             <div className='baseLeaderboardItem'>
@@ -24,12 +31,12 @@ function PostRanking({ profiles, loading }) {
                         </div>
                         <img
                             className='itemImage'
-                            src={profile.image}
+                            src={'https://localhost:7159/imagens/' + profile.listaFotos[0].nomeFicheiro + ''}
                             style={{ width: '55px', height: '55px' }}
                             alt='imagem do perfil'
                         />
                         <div className='itemName'>
-                            <h3>{profile.firstName} {profile.lastName}</h3>
+                            <h3>{profile.primeiro_Nome} {profile.ultimo_Nome}</h3>
                         </div>
                         <div className='itemScore'>
                             <h3>{profile.score}</h3>
@@ -39,21 +46,27 @@ function PostRanking({ profiles, loading }) {
             </div>
 
             <InfoPopup trigger={popup} setTrigger={setPopup}>
-                <h2 className='txtChessPopupTitle'>{ProfilePopup.firstName} {ProfilePopup.lastName}</h2>
-                <img
-                    src={ProfilePopup.image}
-                    style={{ width: '200px', height: '200px', borderRadius: '50%', margin: '50px 0 0 50px' }}
-                    alt='Imagem do Jogador'
-                    className='imgChessPopup' />
-                <div className='txtChessPopupDescription'>
-                    <h3 className='txtChessPopupDescriptionScore'>Score: {ProfilePopup.score}</h3>
-                    <p className='txtChessPopupDescriptionTeam'>Team: FC Porto</p>
-                    <p className='txtChessPopupDescriptionAge'>Age: 21</p>
-                    <p className='txtChessPopupDescriptionTournaments'>Torneios que Participou: </p>
-                </div>
+                {ProfilePopup && (
+                    <>
+                        <h2 className='txtChessPopupTitle'>{ProfilePopup.primeiro_Nome} {ProfilePopup.ultimo_Nome}</h2>
+                        {ProfilePopup.listaFotos && ProfilePopup.listaFotos[0] && (
+                            <img
+                                src={'https://localhost:7159/imagens/' + ProfilePopup.listaFotos[0].nomeFicheiro}
+                                style={{ width: '200px', height: '200px', borderRadius: '50%', margin: '50px 0 0 50px' }}
+                                alt='Imagem do Jogador'
+                                className='imgChessPopup'
+                            />
+                        )}
+                        <div className='txtChessPopupDescription'>
+                            <h3 className='txtChessPopupDescriptionScore'>Score: {ProfilePopup.score}</h3>
+                            <p className='txtChessPopupDescriptionTeam'>Team: {ProfilePopup.equipa.nome}</p>
+                            <p className='txtChessPopupDescriptionAge'>Age: {calcAge(ProfilePopup.dataNascimento)}</p>
+                        </div>
+                    </>
+                )}
             </InfoPopup>
         </>
     );
 }
 
-export default PostRanking
+export default PostRanking;

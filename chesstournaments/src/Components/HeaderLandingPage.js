@@ -23,7 +23,11 @@ function HeadearLandingPage() {
             <img className='imgChessLogoLandingPage' alt='Imagem da Página do Landing Page' src={logo} />
             <div className="menuUrls">
                 <ul className='ulHeader'>
-                    <li><a href="./">Info</a></li>
+                    {isLoggedIn ? (
+                        <li><a href="./UserPage">Profile</a></li>
+                    ) : (
+                        <li><a href="./">Info</a></li>
+                    )}
                     <li><a href="./ChessRanking">Ranking</a></li>
                     <li><a href="./Tournaments">Tournaments</a></li>
                     <li><a href="./Teams">Teams</a></li>
@@ -31,9 +35,9 @@ function HeadearLandingPage() {
                 </ul>
             </div>
             {isLoggedIn ? (
-                <button className="btntoLogin" onClick={handleGoToLogut}>Logout</button>
+                <button className="btntoLogin" onClick={handleGoToLogut} style={{ margin: '0 0 0 3%' }}>Logout</button>
             ) : (
-                <button className="btntoLogin" onClick={handleGoToLogin}>Login</button>
+                <button className="btntoLogin" onClick={handleGoToLogin} style={{ margin: '0 0 0 5%' }}>Login</button>
             )}
         </header>
     )

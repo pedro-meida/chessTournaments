@@ -67,12 +67,40 @@ function MissingDataRegisterPage() {
 
     const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
+    const handleRegister = async (event) => {
         event.preventDefault();
-        console.log(info);
-        navigate('/');
+        if (username === '' || birthDate === '' || sexo === '' || nacionalidade === '' || address === '' || postalCode === '') {
+            alert('Preencha todos os campos');
+            navigate('/');
+        } else {
+            const response = await fetch('https://localhost:7159/Pessoa/Create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(info)
+            });
+            console.log(response);
+            if (response.status === 201) {
+                console.log("criado");
+                navigate('/Login');
+            } else {
+                alert('Erro ao Criar Conta');
+                navigate('/');
+            }
+        }
     }
 
+    /*const handleSubmit = (event) => {
+        event.preventDefault();
+        if (username === '' || birthDate === '' || sexo === '' || nacionalidade === '' || address === '' || postalCode === '') {
+            alert('Preencha todos os campos');
+            navigate('/');
+        } else {
+            navigate("../Login");
+            alert('Conta Criadada com Sucesso');
+        }
+    }*/
 
 
     return (
@@ -114,7 +142,7 @@ function MissingDataRegisterPage() {
                                 accept="image/png, image/jpg"
                                 onChange={handleInputPhoto}
                                 placeholder='Foto' />
-                            <button className='btnMissingData' onClick={handleSubmit}>Submit</button>
+                            <button className='btnMissingData' onClick={handleRegister}>Submit</button>
                         </form>
                     </div>
                 </div>

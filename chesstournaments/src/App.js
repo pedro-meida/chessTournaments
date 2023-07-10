@@ -10,6 +10,8 @@ import ChessRankingPage from './screens/ChessRankingPage.js';
 import TournamentPage from './screens/TournamentPage.js';
 import TeamsPage from './screens/TeamsPage.js';
 import MissingDataRegisterPage from './screens/MissingDataRegisterPage';
+import PageNotFound from './screens/PageNotFound.js';
+import UserPage from './screens/UserPage.js';
 
 function App() {
 
@@ -28,9 +30,12 @@ function App() {
           <Route path="/Tournaments" element={<TournamentPage />} />
           <Route path="/Teams" element={<TeamsPage />} />
 
+          {/* Rotas que não existem */}
+          <Route path="*" element={<PageNotFound />} />
+
           {/* Rotas Privadas / Rotas que só podem ser acedidas por utilizadores com login */}
           <Route element={<PrivateRoute />} >
-
+            <Route path="/UserPage" element={<UserPage />} />
           </Route>
 
         </Routes>
