@@ -7,66 +7,52 @@ function RegisterPage() {
     const navigate = useNavigate();
 
     const [info, setInfo] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phoneNumber: '',
-        password: '',
-        username: '',
-        birthDate: '',
-        sex: '',
-        nacionality: '',
-        address: '',
-        postalCode: '',
-        photo: ''
+        FirstName: '',
+        LastName: '',
+        DateOfBirth: '',
+        Gender: '',
+        Nationality: '',
+        Email: '',
+        PhoneNumber: '',
+        Address: '',
+        PostalCode: '',
+        IsEmployee: '',
+        Score: '',
+        ImagePath: '',
+        Password: ''
     });
 
-    const [firstNome, setfirstNome] = useState(info.firstName);
-
     const handleInputFirstName = (event) => {
-        setfirstNome(event.target.value);
-        setInfo({ ...info, firstName: event.target.value });
+        setInfo({ ...info, FirstName: event.target.value });
     }
-
-    const [lastName, setLastName] = useState(info.lastName);
 
     const handleInputLastName = (event) => {
-        setLastName(event.target.value);
-        setInfo({ ...info, lastName: event.target.value });
+        setInfo({ ...info, LastName: event.target.value });
     }
-
-    const [email, setEmail] = useState(info.email);
 
     const handleInputEmail = (event) => {
-        setEmail(event.target.value);
-        setInfo({ ...info, email: event.target.value });
+        setInfo({ ...info, Email: event.target.value });
     }
-
-    const [phoneNumber, setPhoneNumber] = useState(info.phoneNumber);
 
     const handleInputPhoneNumber = (event) => {
-        setPhoneNumber(event.target.value);
-        setInfo({ ...info, phoneNumber: event.target.value });
+        setInfo({ ...info, PhoneNumber: event.target.value });
     }
-
-    const [password, setPassword] = useState(info.password);
 
     const handleInputPassword = (event) => {
-        setPassword(event.target.value);
-        setInfo({ ...info, password: event.target.value });
+        setInfo({ ...info, Password: event.target.value });
     }
 
-    const [ConfirmPassword, setConfirmPassword] = useState(info.ConfirmPassword);
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleInputConfirmPassword = (event) => {
         setConfirmPassword(event.target.value);
     }
 
     const handleGoToMissingData = () => {
-        if (firstNome === '' || lastName === '' || email === '' || phoneNumber === '' || password === '' || ConfirmPassword === '') {
+        if (info.FirstName === '' || info.LastName === '' || info.Email === '' || info.PhoneNumber === '' || info.Password === '' || confirmPassword === '') {
             alert('Preencha todos os campos');
         } else {
-            if (password === ConfirmPassword) {
+            if (info.Password === confirmPassword) {
                 navigate(
                     "../CriarConta/DadosEmFalta",
                     { state: { info: info } }
@@ -91,12 +77,12 @@ function RegisterPage() {
                     <div className='ContainerRegister_Form'>
                         <h1 style={{ color: 'white' }}>Create Account</h1>
                         <form>
-                            <input className='InputsRegister' type='text' value={firstNome} onChange={handleInputFirstName} placeholder='First Name' />
-                            <input className='InputsRegister' type='text' value={lastName} onChange={handleInputLastName} placeholder='Last Name' />
-                            <input className='InputsRegister' type='text' value={email} onChange={handleInputEmail} placeholder='Email' />
-                            <input className='InputsRegister' type='text' value={phoneNumber} onChange={handleInputPhoneNumber} placeholder='Phone Number' />
-                            <input className='InputsRegister' type='password' value={password} onChange={handleInputPassword} placeholder='Password' />
-                            <input className='InputsRegister' type='password' value={ConfirmPassword} onChange={handleInputConfirmPassword} placeholder='Confirm Password' />
+                            <input className='InputsRegister' type='text' value={info.FirstName} onChange={handleInputFirstName} placeholder='First Name' />
+                            <input className='InputsRegister' type='text' value={info.LastName} onChange={handleInputLastName} placeholder='Last Name' />
+                            <input className='InputsRegister' type='text' value={info.Email} onChange={handleInputEmail} placeholder='Email' />
+                            <input className='InputsRegister' type='text' value={info.PhoneNumber} onChange={handleInputPhoneNumber} placeholder='Phone Number' />
+                            <input className='InputsRegister' type='password' value={info.Password} onChange={handleInputPassword} placeholder='Password' />
+                            <input className='InputsRegister' type='password' value={confirmPassword} onChange={handleInputConfirmPassword} placeholder='Confirm Password' />
                             <button className='btnRegister' onClick={handleGoToMissingData}>Sign Up</button>
                             <a className='AnchorRegister' href='../Login'>Already have an account?</a>
                         </form>

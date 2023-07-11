@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import InfoPopup from '../Components/InfoPopup';
 
-function PostRanking({ profiles, loading }) {
+function PostRanking({ profiles, currentPage, postsPerPage }) {
     const [popup, setPopup] = useState(false);
     const [ProfilePopup, setProfilePopup] = useState('');
 
     const popupFunction = (valuePlayer) => {
         setPopup(true);
-        valuePlayer = valuePlayer - 1;
-        console.log(valuePlayer);
         setProfilePopup(profiles[valuePlayer]);
     };
 
@@ -17,32 +15,34 @@ function PostRanking({ profiles, loading }) {
         return ~~((Date.now() - birthday) / 31557600000);
     };
 
-    if (loading) {
-        return <h2>Loading...</h2>;
-    }
+    const adjustedCount = (currentPage - 1) * postsPerPage;
 
     return (
         <>
             <div className='baseLeaderboardItem'>
-                {profiles.map((profile) => (
-                    <div className='leaderboardItem' onClick={() => popupFunction(profile.id)} key={profile.id}>
-                        <div className='itemRanking'>
-                            <h3>{profile.id}</h3>
+                {profiles.map((profile, index) => {
+                    const count = adjustedCount + index + 1;
+
+                    return (
+                        <div className='leaderboardItem' onClick={() => popupFunction(index)} key={profile.id}>
+                            <div className='itemRanking'>
+                                <h3>{count}</h3>
+                            </div>
+                            <img
+                                className='itemImage'
+                                src={'imagens/' + profile.listaFotos[0].nomeFicheiro + ''}
+                                style={{ width: '55px', height: '55px' }}
+                                alt='imagem do perfil'
+                            />
+                            <div className='itemName'>
+                                <h3>{profile.primeiro_Nome} {profile.ultimo_Nome}</h3>
+                            </div>
+                            <div className='itemScore'>
+                                <h3>{profile.score}</h3>
+                            </div>
                         </div>
-                        <img
-                            className='itemImage'
-                            src={'https://localhost:7159/imagens/' + profile.listaFotos[0].nomeFicheiro + ''}
-                            style={{ width: '55px', height: '55px' }}
-                            alt='imagem do perfil'
-                        />
-                        <div className='itemName'>
-                            <h3>{profile.primeiro_Nome} {profile.ultimo_Nome}</h3>
-                        </div>
-                        <div className='itemScore'>
-                            <h3>{profile.score}</h3>
-                        </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
 
             <InfoPopup trigger={popup} setTrigger={setPopup}>
@@ -51,7 +51,7 @@ function PostRanking({ profiles, loading }) {
                         <h2 className='txtChessPopupTitle'>{ProfilePopup.primeiro_Nome} {ProfilePopup.ultimo_Nome}</h2>
                         {ProfilePopup.listaFotos && ProfilePopup.listaFotos[0] && (
                             <img
-                                src={'https://localhost:7159/imagens/' + ProfilePopup.listaFotos[0].nomeFicheiro}
+                                src={'imagens/' + ProfilePopup.listaFotos[0].nomeFicheiro}
                                 style={{ width: '200px', height: '200px', borderRadius: '50%', margin: '50px 0 0 50px' }}
                                 alt='Imagem do Jogador'
                                 className='imgChessPopup'

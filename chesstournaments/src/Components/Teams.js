@@ -5,7 +5,6 @@ import Pagination from './Pagination.js'
 
 function Teams() {
     const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(5);
 
@@ -15,7 +14,7 @@ function Teams() {
             method: 'GET',
             redirect: 'follow'
         };
-        fetch("https://localhost:7159/api/EquipasJson", requestOptions)
+        fetch("api/EquipaJson", requestOptions)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -37,7 +36,7 @@ function Teams() {
             <div className='teams'>
                 <h1 className='txtTeams'>Teams</h1>
                 <div className='baseTeams'>
-                    <PostTeams teams={currentTeams} loading={loading} />
+                    <PostTeams teams={currentTeams} />
                     <Pagination postPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} />
                 </div>
             </div>

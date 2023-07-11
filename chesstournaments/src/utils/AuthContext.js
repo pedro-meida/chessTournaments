@@ -7,12 +7,14 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(() => {
+        const storedUser = localStorage.getItem('user');
+        return storedUser ? JSON.parse(storedUser) : null;
+    });
     const [isLoggedIn, setIsLoggedIn] = useState(() => {
         const storedIsLoggedIn = localStorage.getItem('isLoggedIn');
         return storedIsLoggedIn ? JSON.parse(storedIsLoggedIn) : false;
     });
-    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
@@ -20,8 +22,6 @@ export function AuthProvider({ children }) {
         if (storedUser) {
             setUser(JSON.parse(storedUser));
         }
-
-        setIsLoading(false);
     }, []);
 
     useEffect(() => {
@@ -35,10 +35,6 @@ export function AuthProvider({ children }) {
         isLoggedIn,
         setIsLoggedIn,
     };
-
-    if (isLoading) {
-        return <div>Loading...</div>; // or a loading spinner
-    }
 
     console.log(isLoggedIn);
     return (

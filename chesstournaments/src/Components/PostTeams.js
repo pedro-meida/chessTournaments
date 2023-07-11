@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import InfoPopup from '../Components/InfoPopup';
 
-function PostRanking({ teams, loading }) {
+function PostRanking({ teams }) {
     const [popup, setPopup] = useState(false);
     const [TeamPopup, setTeamPopup] = useState('');
-    const [posts, setPosts] = useState([]);
 
     const popupFunction = (valueTeam) => {
         setPopup(true);
@@ -12,26 +11,6 @@ function PostRanking({ teams, loading }) {
         setTeamPopup(teams[valueTeam]);
     }
 
-    useEffect(() => {
-
-        var requestOptions = {
-            method: 'GET',
-            redirect: 'follow'
-        };
-        fetch("https://localhost:7159/api/EquipasJson", requestOptions)
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                setPosts(data);
-            })
-            .catch((err) => {
-                console.log(err.message);
-            });
-    }, []);
-
-    if (loading) {
-        return <h2>Loading...</h2>;
-    }
     return (
         <>
             <div className='baseTeamsItem'>

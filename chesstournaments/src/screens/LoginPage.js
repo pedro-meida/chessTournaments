@@ -13,49 +13,42 @@ function LoginPage() {
 
     const { setUser, setIsLoggedIn } = useAuth();
 
-    /*const handleLogin = async () => {
+    const handleLogin = async (e) => {
+        e.preventDefault();
         try {
-            console.log(email, password)
             if (email === '' || password === '') {
                 alert('Dados em falta');
-            }
-            else {
-                const response = await fetch('http://youthere.pythonanywhere.com/auth/' + email + '/' + password, {
-                    method: "GET",
+            } else {
+                const response = await fetch(`api/Login`, {
+                    method: 'POST',
                     headers: {
-                        Accept: "application/json",
-                        "Content-Type": "application/json",
+                        'Content-Type': 'application/json'
                     },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password
+                    })
                 });
-                if (response.status === 404) {
-                    alert('Utilizador não encontrado');
-                } else if (response.status === 401) {
-                    alert('A password está incorreta');
+
+                if (!response.ok) {
+                    if (response.status === 404) {
+                        alert('Utilizador não encontrado');
+                    } else if (response.status === 401) {
+                        alert('A password está incorreta');
+                    } else {
+                        throw new Error('Erro ao efetuar o login');
+                    }
                 } else {
                     const data = await response.json();
-                    if (data != null) {
-                        setUser(data);
-                        setIsLoggedIn(true);
-                        navigate("../userPage")
-                    }
+                    setUser(data);
+                    setIsLoggedIn(true);
+                    navigate("../userPage");
                 }
             }
         } catch (error) {
             console.error(error);
+            alert('Ocorreu um erro ao efetuar o login');
         }
-
-    }*/
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Email:', email);
-        console.log('Password:', password);
-        setIsLoggedIn(true);
-        setUser({
-            email: email,
-            password: password
-        })
-        navigate("../userPage")
     };
 
     return (
@@ -69,7 +62,7 @@ function LoginPage() {
                         src={logo} />
                     <div className='ContainerLogin_Form'>
                         <h1 style={{ color: 'white' }}>Login</h1>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleLogin}>
                             <input
                                 className='InputsLogin'
                                 type='text'
