@@ -1,0 +1,81 @@
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #004346;
+    height: 13%;
+    padding: 10px 40px;
+}
+
+.txtlogo {
+    float: left;
+    width: 15%;
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.imgChessLogoLandingPage {
+    float: left;
+    width: 10%;
+    height: 100px;
+}
+
+.menuUrls {
+    float: left;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    margin: 0 18% 0 12%;
+}
+
+.ulHeader {
+    padding: 0px !important;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menuUrls ul li {
+    float: left;
+    color: #fff;
+    margin-left: 6px;
+    margin-right: 6px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+.menuUrls ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.menuUrls ul li a:hover {
+    color: #4CAF50;
+    border-bottom: 2px solid #4CAF50;
+}
+
+.menuUrls ul li b {
+    padding: 32px;
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.btntoLogin {
+    width: 30%;
+    float: left;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    align-items: center;
+    display: block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 6px 12px;
+}

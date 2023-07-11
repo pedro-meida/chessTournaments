@@ -1,0 +1,73 @@
+.baseUserPage {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #172A3A;
+}
+
+.infoProfile {
+    width: 40%;
+    height: 60%;
+    margin-top: 5%;
+    border-right: 1px solid #fff;
+    float: left;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nameProfile {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: #4CAF50;
+}
+
+.profilePicture {
+    width: 30%;
+    float: left;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.imgProfilePicture {
+    width: 80%;
+    margin-left: 10%;
+    background-color: #fff;
+    clip-path: circle();
+}
+
+.btnChangeProfilePicture {
+    width: 65%;
+    background-color: #4CAF50;
+    margin-left: 15%;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.profileInfo {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profileInfoTitle {
+    margin-left: 10%;
+    color: #fff;
+}
+
+.otherInformations {
+    width: 59%;
+    float: left;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+}

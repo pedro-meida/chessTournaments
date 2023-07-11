@@ -1,0 +1,51 @@
+.baseAboutUs {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #172A3A;
+}
+
+.aboutUsContent {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 70%;
+    margin: 5% 15%;
+}
+
+.txtaboutUs {
+    float: left;
+    width: 50%;
+    padding-right: 5%;
+}
+
+.txtOurTeam {
+    float: left;
+    width: 45%;
+}
+
+.collaborators {
+    float: left;
+    width: 50%;
+    margin-top: 5%;
+}
+
+.aboutUsContent h1 {
+    color: #4CAF50;
+    margin-top: 5%;
+    text-align: center;
+
+}
+
+.aboutUsContent p {
+    color: #fff;
+    text-align: center;
+}
+
+.aboutUsContent img {
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+}

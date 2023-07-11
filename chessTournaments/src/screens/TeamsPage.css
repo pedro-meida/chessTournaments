@@ -1,0 +1,154 @@
+.baseTeamsPage {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #172A3A;
+}
+
+.teams {
+    display: flex;
+    width: 80%;
+    margin: 0% auto;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.txtTeams {
+    font-size: 30px;
+    font-weight: bold;
+    color: #4CAF50;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.baseTeams {
+    width: 100%;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.baseTeamsItem {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.teamsItem {
+    float: left;
+    width: 100%;
+    margin: 0 0 6px 0;
+    padding: 1% 0;
+    background: linear-gradient(#4CAF50, #09BC8A);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.teamsItem:hover {
+    box-shadow: 0 0 5px #09BC8A, 0 0 10px #09BC8A, 0 0 20px #09BC8A;
+}
+
+.itemTeamId {
+    float: left;
+    width: 10%;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+
+}
+
+.itemTeamImage {
+    float: left;
+    clip-path: circle();
+}
+
+.itemTeamName {
+    float: left;
+    width: 25%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 5%;
+    text-align: left;
+}
+
+.txtChessPopupTitle {
+    font-size: 3vw;
+    font-weight: bold;
+    color: #4CAF50;
+    margin: 2% 0;
+}
+
+.txtChessPopupDescriptionScore {
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin: 15% 0 5% 0;
+}
+
+.txtChessPopupDescriptionTeam {
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 5%;
+}
+
+.txtChessPopupDescriptionAge {
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 5%;
+}
+
+.txtChessPopupDescriptionTournaments {
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 5%;
+}
+
+.navPagination {
+    width: 50%;
+    margin-left: 40%;
+    float: left;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination {
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.pagination li button {
+    float: left;
+    color: #fff;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.pagination li button:hover {
+    color: #4CAF50;
+    border: 2px solid #4CAF50;
+
+}
