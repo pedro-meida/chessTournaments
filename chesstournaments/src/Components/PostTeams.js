@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import InfoPopup from '../Components/InfoPopup';
+import foto from '../imgs/chessLogoTeam.png'
 
 function PostRanking({ teams }) {
     const [popup, setPopup] = useState(false);
@@ -19,12 +20,16 @@ function PostRanking({ teams }) {
                         <div className='itemTeamId'>
                             <h3>{team.id}</h3>
                         </div>
-                        {/*<img
+                        <img
                             className='itemTeamImage'
-                            src={team.image}
+                            src={
+                                team.listaFotos[0]?.nomeFicheiro
+                                    ? team.listaFotos[0].nomeFicheiro
+                                    : foto
+                            }
                             style={{ width: '55px', height: '55px' }}
                             alt='imagem da equipa'
-                />*/}
+                        />
                         <div className='itemTeamName'>
                             <h3>{team.nome}</h3>
                         </div>

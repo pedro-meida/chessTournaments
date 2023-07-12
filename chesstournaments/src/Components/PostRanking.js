@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import InfoPopup from '../Components/InfoPopup';
+import foto from '../imgs/imagemPerfilDefault.png';
 
 function PostRanking({ profiles, currentPage, postsPerPage }) {
     const [popup, setPopup] = useState(false);
@@ -30,7 +31,11 @@ function PostRanking({ profiles, currentPage, postsPerPage }) {
                             </div>
                             <img
                                 className='itemImage'
-                                src={'imagens/' + profile.listaFotos[0].nomeFicheiro + ''}
+                                src={
+                                    profile.listaFotos[0]?.nomeFicheiro
+                                        ? 'imagens/' + profile.listaFotos[0].nomeFicheiro
+                                        : foto
+                                }
                                 style={{ width: '55px', height: '55px' }}
                                 alt='imagem do perfil'
                             />

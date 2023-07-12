@@ -1,5 +1,5 @@
 import React from 'react'
-import foto from '../imgs/Colaborador2.png'
+import foto from '../imgs/imagemPerfilDefault.png'
 import { useAuth } from '../utils/AuthContext';
 
 function InfoProfile() {
@@ -19,11 +19,15 @@ function InfoProfile() {
                 <h1 className='nameProfile'>{user.person.primeiro_Nome} {user.person.ultimo_Nome}</h1>
             </div>
             <div className='profilePicture'>
-                <img className='imgProfilePicture' alt='Imagem do Perfil' src={foto} />
-
-                <div className='profilePictureButtons'>
-                    <button className='btnChangeProfilePicture'>Change</button>
-                </div>
+                <img
+                    className='imgProfilePicture'
+                    src={
+                        user.person.listaFotos[0]?.nomeFicheiro
+                            ? user.person.listaFotos[0].nomeFicheiro
+                            : foto
+                    }
+                    alt='imagem da equipa'
+                />
             </div>
             <div className='profileInfo'>
                 <h3 className='profileInfoTitle'>Email: {user.person.email}</h3>
